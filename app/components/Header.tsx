@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-
+import Modal from "./Modal";
+import RegisterForm from "./RegisterForm";
 interface Genre {
   id: number;
   name: string;
@@ -35,7 +36,7 @@ export default function Header({
         setLoadingGenres(false);
       });
   }, []);
-
+  const [registerOpen, setRegisterOpen] = useState(false);
   return (
     <header>
       <div
@@ -91,7 +92,7 @@ export default function Header({
             />
           </div>
 
-          <div
+          {/* <div
             style={{
               background: "rgba(255,215,0,0.1)",
               border: "1px solid rgba(255,215,0,0.3)",
@@ -104,7 +105,39 @@ export default function Header({
             }}
           >
             IMDb RATED
+          </div> */}
+          {/* جای IMDb RATED badge */}
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <div
+              style={{
+                background: "rgba(255,215,0,0.1)",
+                border: "1px solid rgba(255,215,0,0.3)",
+                borderRadius: "999px",
+                padding: "4px 14px",
+                color: "var(--gold)",
+                fontSize: "0.78rem",
+                fontWeight: 600,
+                letterSpacing: "0.06em",
+              }}
+            >
+              IMDb RATED
+            </div>
+
+            <button
+              className="register-btn"
+              onClick={() => setRegisterOpen(true)}
+            >
+              ثبت نام
+            </button>
           </div>
+
+          <Modal
+            isOpen={registerOpen}
+            onClose={() => setRegisterOpen(false)}
+            title="ثبت نام"
+          >
+            <RegisterForm onClose={() => setRegisterOpen(false)} />
+          </Modal>
         </div>
 
         {/* Genre filter */}
