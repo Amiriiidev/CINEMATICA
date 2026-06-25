@@ -698,3 +698,63 @@ body {
   font-size: 0.78rem;
   margin-top: 2px;
 }
+
+.login-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  border-radius: 999px;
+  padding: 7px 20px;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: "Vazirmatn", sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.login-btn:hover {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* Profile page */
+.profile-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-card-label {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.profile-card-value {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.logout-btn {
+  background: rgba(255, 80, 80, 0.1);
+  border: 1px solid rgba(255, 80, 80, 0.3);
+  border-radius: 999px;
+  padding: 7px 20px;
+  color: #ff6b6b;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: "Vazirmatn", sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 80, 80, 0.2);
+}

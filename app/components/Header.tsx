@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 import Modal from "./Modal";
 import RegisterForm from "./RegisterForm";
+import LoginForm from "./LoginForm";
+import { useRouter } from "next/navigation";
+import { useAuthStore } from "../store/authStore";
 interface Genre {
   id: number;
   name: string;
@@ -36,7 +39,11 @@ export default function Header({
         setLoadingGenres(false);
       });
   }, []);
+
   const [registerOpen, setRegisterOpen] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
+  const router = useRouter();
+  const accessToken = useAuthStore((s) => s.accessToken);
   return (
     <header>
       <div
@@ -79,7 +86,6 @@ export default function Header({
               CINEMATICA
             </span>
           </div>
-
           {/* Search bar */}
           <div className="search-wrap">
             <span className="search-icon">🔍</span>
@@ -123,20 +129,44 @@ export default function Header({
               IMDb RATED
             </div>
 
-            <button
-              className="register-btn"
-              onClick={() => setRegisterOpen(true)}
-            >
-              ثبت نام
-            </button>
+            {accessToken ? (
+              <button
+                className="register-btn"
+                onClick={() => router.push("/profile")}
+              >
+                اطلاعات حساب
+              </button>
+            ) : (
+              <>
+                <button
+                  className="login-btn"
+                  onClick={() => setLoginOpen(true)}
+                >
+                  ورود
+                </button>
+                <button
+                  className="register-btn"
+                  onClick={() => setRegisterOpen(true)}
+                >
+                  ثبت نام
+                </button>
+              </>
+            )}
           </div>
-
           <Modal
             isOpen={registerOpen}
             onClose={() => setRegisterOpen(false)}
             title="ثبت نام"
           >
             <RegisterForm onClose={() => setRegisterOpen(false)} />
+          </Modal>
+
+          <Modal
+            isOpen={loginOpen}
+            onClose={() => setLoginOpen(false)}
+            title="ورود"
+          >
+            <LoginForm onClose={() => setLoginOpen(false)} />
           </Modal>
         </div>
 

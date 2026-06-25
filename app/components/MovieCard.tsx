@@ -56,7 +56,7 @@ export default function MovieCard({
                 marginBottom: "8px",
               }}
             >
-              {movie.genres.map((g) => (
+              {movie?.genres?.map((g) => (
                 <span key={g} className="genre-tag">
                   {g}
                 </span>

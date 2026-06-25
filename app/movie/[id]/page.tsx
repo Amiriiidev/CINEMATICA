@@ -114,7 +114,7 @@ export default function MovieDetailPage() {
                   marginBottom: "0.8rem",
                 }}
               >
-                {movie.genres.map((g) => (
+                {movie?.genres?.map((g) => (
                   <span key={g} className="genre-tag">
                     {g}
                   </span>
