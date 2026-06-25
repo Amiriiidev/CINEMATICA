@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# 🎬 Cinematica
 
-First, run the development server:
+**پلتفرم مرور و کشف بهترین فیلم‌های تاریخ سینما**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-blue?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Zustand](https://img.shields.io/badge/Zustand-orange?style=for-the-badge)
+
+</div>
+
+---
+
+## ✨ ویژگی‌ها
+
+- 🎞 **نمایش ۲۵۰ فیلم برتر** بر اساس امتیاز IMDb
+- 🔍 **جستجو** بر اساس نام فیلم با مدیریت state از طریق URL
+- 🎭 **فیلتر بر اساس ژانر** با دریافت داینامیک از API
+- 📄 **صفحه جزئیات فیلم** با گالری تصاویر و اطلاعات کامل
+- 📱 **صفحه‌بندی** با پشتیبانی از URL state
+- 🌙 **تم تاریک / روشن** با ذخیره‌سازی در localStorage
+- 🔐 **سیستم احراز هویت** (ثبت نام و ورود)
+- 👤 **صفحه پروفایل کاربر**
+- 🌐 **RTL و فارسی‌سازی کامل** با فونت Vazirmatn
+- 🎨 **دیزاین سینمایی** با تم تاریک و رنگ طلایی
+
+---
+
+## 🛠 تکنولوژی‌ها
+
+| دسته | تکنولوژی |
+|------|-----------|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS + CSS Variables |
+| State Management | Zustand (با persist) |
+| Form Handling | React Hook Form |
+| Font | Vazirmatn (RTL) + Bebas Neue |
+| API | moviesapi.ir |
+| Deployment | Vercel |
+
+---
+
+## 📁 ساختار پروژه
+
+```
+cinematica/
+├── app/
+│   ├── api/
+│   │   ├── login/route.ts       # پروکسی لاگین (رفع CORS)
+│   │   └── user/route.ts        # پروکسی پروفایل (رفع CORS)
+│   ├── components/
+│   │   ├── Header.tsx           # هدر استیکی با فیلتر ژانر و سرچ
+│   │   ├── Footer.tsx           # فوتر
+│   │   ├── MovieCard.tsx        # کارت فیلم با hover effect
+│   │   ├── Pagination.tsx       # کامپوننت صفحه‌بندی
+│   │   ├── Modal.tsx            # مدال پورتال شده
+│   │   ├── RegisterForm.tsx     # فرم ثبت نام
+│   │   ├── LoginForm.tsx        # فرم ورود
+│   │   └── ThemeToggle.tsx      # دکمه تغییر تم
+│   ├── movie/[id]/
+│   │   └── page.tsx             # صفحه جزئیات فیلم
+│   ├── profile/
+│   │   └── page.tsx             # صفحه پروفایل کاربر
+│   ├── store/
+│   │   ├── authStore.ts         # ذخیره توکن‌های احراز هویت
+│   │   └── themeStore.ts        # ذخیره تم انتخابی
+│   ├── globals.css              # استایل‌های سراسری + CSS Variables
+│   ├── layout.tsx               # layout اصلی
+│   └── page.tsx                 # صفحه اصلی
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 راه‌اندازی محلی
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# کلون کردن پروژه
+git clone https://github.com/YOUR_USERNAME/cinematica.git
 
-## Learn More
+# ورود به پوشه
+cd cinematica
 
-To learn more about Next.js, take a look at the following resources:
+# نصب dependencies
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# اجرا در حالت development
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+بعد از اجرا، مرورگر رو باز کن و برو به:
+```
+http://localhost:3000
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔑 API Endpoints
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+پروژه از [moviesapi.ir](https://moviesapi.ir) استفاده می‌کنه:
+
+| Endpoint | توضیح |
+|----------|-------|
+| `GET /api/v1/movies?page={page}` | لیست فیلم‌ها |
+| `GET /api/v1/movies?q={query}` | جستجوی فیلم |
+| `GET /api/v1/movies/{id}` | جزئیات فیلم |
+| `GET /api/v1/genres` | لیست ژانرها |
+| `GET /api/v1/genres/{id}/movies` | فیلم‌های یک ژانر |
+| `POST /api/v1/register` | ثبت نام |
+| `POST /oauth/token` | ورود و دریافت توکن |
+| `GET /api/user` | اطلاعات کاربر |
+
+---
+
+## 📸 اسکرین‌شات
+
+> به زودی اضافه می‌شود
+
+---
+
+## 📄 لایسنس
+
+این پروژه تحت لایسنس MIT منتشر شده.
+
+---
+
+<div align="center">
+ساخته شده با ❤️ توسط امیرحسین
+</div>
