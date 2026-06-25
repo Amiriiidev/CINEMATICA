@@ -30,16 +30,16 @@
 
 ## 🛠 تکنولوژی‌ها
 
-| دسته | تکنولوژی |
-|------|-----------|
-| Framework | Next.js 15 (App Router) |
-| Language | TypeScript |
-| Styling | Tailwind CSS + CSS Variables |
-| State Management | Zustand (با persist) |
-| Form Handling | React Hook Form |
-| Font | Vazirmatn (RTL) + Bebas Neue |
-| API | moviesapi.ir |
-| Deployment | Vercel |
+| دسته             | تکنولوژی                     |
+| ---------------- | ---------------------------- |
+| Framework        | Next.js 15 (App Router)      |
+| Language         | TypeScript                   |
+| Styling          | Tailwind CSS + CSS Variables |
+| State Management | Zustand (با persist)         |
+| Form Handling    | React Hook Form              |
+| Font             | Vazirmatn (RTL) + Bebas Neue |
+| API              | moviesapi.ir                 |
+| Deployment       | Vercel                       |
 
 ---
 
@@ -91,6 +91,7 @@ npm run dev
 ```
 
 بعد از اجرا، مرورگر رو باز کن و برو به:
+
 ```
 http://localhost:3000
 ```
@@ -101,30 +102,22 @@ http://localhost:3000
 
 پروژه از [moviesapi.ir](https://moviesapi.ir) استفاده می‌کنه:
 
-| Endpoint | توضیح |
-|----------|-------|
-| `GET /api/v1/movies?page={page}` | لیست فیلم‌ها |
-| `GET /api/v1/movies?q={query}` | جستجوی فیلم |
-| `GET /api/v1/movies/{id}` | جزئیات فیلم |
-| `GET /api/v1/genres` | لیست ژانرها |
-| `GET /api/v1/genres/{id}/movies` | فیلم‌های یک ژانر |
-| `POST /api/v1/register` | ثبت نام |
-| `POST /oauth/token` | ورود و دریافت توکن |
-| `GET /api/user` | اطلاعات کاربر |
+| Endpoint                         | توضیح              |
+| -------------------------------- | ------------------ |
+| `GET /api/v1/movies?page={page}` | لیست فیلم‌ها       |
+| `GET /api/v1/movies?q={query}`   | جستجوی فیلم        |
+| `GET /api/v1/movies/{id}`        | جزئیات فیلم        |
+| `GET /api/v1/genres`             | لیست ژانرها        |
+| `GET /api/v1/genres/{id}/movies` | فیلم‌های یک ژانر   |
+| `POST /api/v1/register`          | ثبت نام            |
+| `POST /oauth/token`              | ورود و دریافت توکن |
+| `GET /api/user`                  | اطلاعات کاربر      |
 
 ---
 
 ## 📸 اسکرین‌شات
 
 > به زودی اضافه می‌شود
-
----
-
-## 📄 لایسنس
-
-این پروژه تحت لایسنس MIT منتشر شده.
-
----
 
 <div align="center">
 ساخته شده با ❤️ توسط امیرحسین
