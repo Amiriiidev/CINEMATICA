@@ -30,7 +30,7 @@ export default function MovieCard({
             top: "10px",
             left: "10px",
             zIndex: 10,
-            background: "rgba(10,10,15,0.85)",
+            background: "color-mix(in srgb, var(--bg-base) 85%, transparent)",
             border: "1px solid rgba(255,215,0,0.3)",
             borderRadius: "4px",
             padding: "2px 8px",

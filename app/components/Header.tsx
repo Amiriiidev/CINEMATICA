@@ -5,6 +5,7 @@ import RegisterForm from "./RegisterForm";
 import LoginForm from "./LoginForm";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "../store/authStore";
+import ThemeToggle from "./ThemeToggle";
 interface Genre {
   id: number;
   name: string;
@@ -61,6 +62,7 @@ export default function Header({
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <ThemeToggle />
             <div
               style={{
                 width: "32px",
