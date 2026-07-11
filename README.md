@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎬 Cinematica
+![Cinematica Screenshot](public/screenshots/preview.png)
 
 **پلتفرم مرور و کشف بهترین فیلم‌های تاریخ سینما**
 
