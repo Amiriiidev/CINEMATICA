@@ -173,43 +173,28 @@ export default function Header({
         </div>
 
         {/* Genre filter */}
-        <div
-          style={{
-            display: "flex",
-            gap: "8px",
-            paddingBottom: "0.9rem",
-            flexWrap: "wrap",
-          }}
-        >
-          <button
-            className={`filter-btn ${activeGenreId === null ? "active" : ""}`}
-            onClick={() => onGenreChange(null, "همه")}
+        <div style={{ paddingBottom: "0.9rem" }}>
+          <select
+            className="genre-select"
+            value={activeGenreId ?? ""}
+            onChange={(e) => {
+              const selected = genres.find(
+                (g) => g.id === Number(e.target.value),
+              );
+              if (e.target.value === "") {
+                onGenreChange(null, "همه");
+              } else if (selected) {
+                onGenreChange(selected.id, selected.name);
+              }
+            }}
           >
-            همه
-          </button>
-
-          {loadingGenres && (
-            <span
-              style={{
-                color: "var(--text-muted)",
-                fontSize: "0.8rem",
-                alignSelf: "center",
-              }}
-            >
-              در حال بارگذاری ژانرها...
-            </span>
-          )}
-
-          {!loadingGenres &&
-            genres.map((genre) => (
-              <button
-                key={genre.id}
-                className={`filter-btn ${activeGenreId === genre.id ? "active" : ""}`}
-                onClick={() => onGenreChange(genre.id, genre.name)}
-              >
+            <option value="">همه ژانرها</option>
+            {genres.map((genre) => (
+              <option key={genre.id} value={genre.id}>
                 {genre.name}
-              </button>
+              </option>
             ))}
+          </select>
         </div>
       </div>
     </header>
